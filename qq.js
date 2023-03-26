@@ -6,13 +6,21 @@ const client = icqq.createClient({platform: 4});
 
 client.login(config.qqNumber, config.qqPassword);
 
-client.on('system.login.device', (e) => {
+client.on('system.login.device', e => {
     client.sendSmsCode();
     console.log('SMS Code:')
     process.stdin.once('data', (res) => {
         client.submitSmsCode(res.toString().trim())
     })
 });
+
+client.on('system.login.slider', e => {
+    console.log('Sider url:' + e.url);
+    console.log('Ticket:');
+    process.stdin.once('data', (data) => {
+        client.submitSlider(data.toString().trim())
+    })
+})
 
 function checkMessageType(event) {
     for(let msg of event.message) {
