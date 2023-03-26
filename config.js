@@ -39,6 +39,7 @@ module.exports = {
     qqNumber:       configObject.qq.account,
     qqPassword:     configObject.qq.password,
     ruleFile:       configObject.ruleFile,
-    beginner:       configObject.beginner
+    beginner:       configObject.beginner,
+    dataDir:        typeof(configObject.dataDir) === 'string'? configObject.dataDir : undefined
 };
 

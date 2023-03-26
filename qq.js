@@ -2,7 +2,7 @@ const icqq      =        require('icqq');
 const config    =      require('./config');
 const handle    =     require('./message');
 
-const client = icqq.createClient({platform: 4});
+const client = icqq.createClient({platform: 4, data_dir: config.dataDir});
 
 client.login(config.qqNumber, config.qqPassword);
 
