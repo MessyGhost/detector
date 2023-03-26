@@ -2,7 +2,11 @@ const icqq      =        require('icqq');
 const config    =      require('./config');
 const handle    =     require('./message');
 
-const client = icqq.createClient({platform: 4, data_dir: config.dataDir});
+const conf = { platform: 4 };
+if(config.dataDir) {
+    conf.data_dir = config.dataDir;
+}
+const client = icqq.createClient(conf);
 
 client.login(config.qqNumber, config.qqPassword);
 
@@ -32,14 +36,14 @@ function checkMessageType(event) {
 }
 
 client.on('message.private', event => {
-    handle(checkMessageType(event)? event.raw_message : undefined, m => event.reply(m), { by: event.friend.user_id });
+    handle(checkMessageType(event)? event.raw_message : undefined, m => event.reply(m, true), { by: event.friend.user_id });
 });
 
 function handleGroup(event) {
     let msg = event.raw_message;
     if(msg.startsWith(config.beginner)) {
         msg = msg.substring(config.beginner.length);
-        handle(checkMessageType(event)? msg : undefined, m => event.reply(m), { from: event.group_id, by: event.sender.user_id });
+        handle(checkMessageType(event)? msg : undefined, m => event.reply(m, true), { from: event.group_id, by: event.sender.user_id });
     } 
 }
 
