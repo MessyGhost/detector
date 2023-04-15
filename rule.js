@@ -25,18 +25,22 @@ function testRule(from, by, rule) {
     return match(from, rule.from) && match(by, rule.by);
 }
 
+//returns action object if passed
 function test(from, by) {
     for(let rule of rules) {
         if(testRule(from, by, rule)) {
             if(rule.action === 1) {
-                return true;
+                return config.defaultAction;
             }
             else if(rule.action === 0) {
-                return false;
+                return undefined;
+            }
+            else if(typeof(rule.action) === 'object') {
+                return Object.assign({}, config.defaultAction, rule.action);
             }
         }
     }
-    return false;
+    return undefined;
 }
 
 module.exports = test;

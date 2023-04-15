@@ -31,7 +31,7 @@ testType(configObject.qq,           'object');
 testType(configObject.qq.account,   'number');
 testType(configObject.qq.password,  'string');
 testType(configObject.ruleFile,     'string');
-testType(configObject.beginner,     'string');
+testType(configObject.chat,         'object');
 
 module.exports = {
     apiUrl:         configObject.api.url,
@@ -39,7 +39,10 @@ module.exports = {
     qqNumber:       configObject.qq.account,
     qqPassword:     configObject.qq.password,
     ruleFile:       configObject.ruleFile,
-    beginner:       configObject.beginner,
-    dataDir:        typeof(configObject.dataDir) === 'string'? configObject.dataDir : undefined
+    dataDir:        typeof(configObject.dataDir) === 'string'? configObject.dataDir : undefined,
+    defaultAction: {
+        beginner: typeof(configObject.chat.beginner) === 'string'? configObject.chat.beginner : undefined,
+        hint: typeof(configObject.chat.hint) === 'string'? configObject.chat.hint : undefined
+    }
 };
 

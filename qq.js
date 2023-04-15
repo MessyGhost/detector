@@ -41,10 +41,7 @@ client.on('message.private', event => {
 
 function handleGroup(event) {
     let msg = event.raw_message;
-    if(msg.startsWith(config.beginner)) {
-        msg = msg.substring(config.beginner.length);
-        handle(checkMessageType(event)? msg : undefined, m => event.reply(m, true), { from: event.group_id, by: event.sender.user_id });
-    } 
+    handle(checkMessageType(event)? msg : undefined, m => event.reply(m, true), { from: event.group_id, by: event.sender.user_id });
 }
 
 client.on('message.group', handleGroup);
