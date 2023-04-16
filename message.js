@@ -1,20 +1,22 @@
 const rule  = require('./rule');
 const gpt   = require('./gpt');
 
-module.exports = async function handleMessage(message, reply, info) {
+module.exports = async function handleMessage(msg, reply, info) {
     let action = rule(info.from, info.by);
     if(action != undefined) {
-        console.log(`Message from ${info.from} by ${info.by} passed the test:\n${message}.`);
-        if(info.from != undefined) {
-            if(action.beginner != undefined && message.startsWith(action.beginner)) {
-                message = message.substring(action.beginner.length);
+        console.log(`Message from ${info.from} by ${info.by} passed the test:\n${msg.raw}.`);
+        let message = msg.raw;
+        if(action.beginner) {
+            if(msg.raw.startsWith(action.beginner)) {
+                message = msg.raw.substring(action.beginner.length);
             }
-            else {
+            else if(info.from) {
                 return;
             }
         }
+        console.log('Now passed the beginner test.')
         let response = '';
-        if(message != undefined) {
+        if(msg.textOnly) {
             try {
                 response = await gpt(message, action);
             }
@@ -23,9 +25,11 @@ module.exports = async function handleMessage(message, reply, info) {
                     console.log(`Server error: ${err.response.status} with data ${err.response.data}.`);
                     switch(err.response.status) {
                     case 429:
-                        response = '问得太快啦。'
+                        response = '问得太快啦。';
+			break;
                     default:
                         response = `服务器回应${err.response.status}。`;
+                        break;
                     }
                 }
                 else if(err.request) {

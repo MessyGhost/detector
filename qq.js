@@ -12,18 +12,18 @@ client.login(config.qqNumber, config.qqPassword);
 
 client.on('system.login.device', e => {
     client.sendSmsCode();
-    console.log('SMS Code:')
+    console.log('SMS Code:');
     process.stdin.once('data', (res) => {
-        client.submitSmsCode(res.toString().trim())
-    })
+        client.submitSmsCode(res.toString().trim());
+    });
 });
 
 client.on('system.login.slider', e => {
     console.log('Sider url:' + e.url);
     console.log('Ticket:');
     process.stdin.once('data', (data) => {
-        client.submitSlider(data.toString().trim())
-    })
+        client.submitSlider(data.toString().trim());
+    });
 })
 
 function checkMessageType(event) {
@@ -36,12 +36,13 @@ function checkMessageType(event) {
 }
 
 client.on('message.private', event => {
-    handle(checkMessageType(event)? event.raw_message : undefined, m => event.reply(m, true), { by: event.friend.user_id });
+    const msg = { raw: event.raw_message, textOnly: checkMessageType(event) };
+    handle(msg, m => event.reply(m, true), { by: event.friend.user_id });
 });
 
 function handleGroup(event) {
-    let msg = event.raw_message;
-    handle(checkMessageType(event)? msg : undefined, m => event.reply(m, true), { from: event.group_id, by: event.sender.user_id });
+    const msg = { raw: event.raw_message, textOnly: checkMessageType(event) };
+    handle(msg, m => event.reply(m, true), { from: event.group_id, by: event.sender.user_id });
 }
 
 client.on('message.group', handleGroup);
