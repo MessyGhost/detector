@@ -2,7 +2,7 @@ const icqq      =        require('icqq');
 const config    =      require('./config');
 const handle    =     require('./message');
 
-const conf = { platform: 4 };
+const conf = { platform: icqq.Platform.old_Android };
 if(config.dataDir) {
     conf.data_dir = config.dataDir;
 }

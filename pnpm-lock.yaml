@@ -1,16 +1,14 @@
 lockfileVersion: 5.4
 
 specifiers:
-  axios: ^1.3.4
-  commander: ^10.0.0
-  icqq: ^0.0.33
-  oicq: ^2.3.1
+  axios: ^1.4.0
+  commander: ^10.0.1
+  icqq: 0.3.14
 
 dependencies:
-  axios: 1.3.4
-  commander: 10.0.0
-  icqq: 0.0.33
-  oicq: 2.3.1
+  axios: 1.4.0
+  commander: 10.0.1
+  icqq: 0.3.14
 
 packages:
 
@@ -18,17 +16,8 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: false
 
-  /axios/0.27.2:
-    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
-    dependencies:
-      follow-redirects: 1.15.2
-      form-data: 4.0.0
-    transitivePeerDependencies:
-      - debug
-    dev: false
-
-  /axios/1.3.4:
-    resolution: {integrity: sha512-toYm+Bsyl6VC5wSkfkbbNB6ROv7KY93PEBBL6xyDczaIHasAiv4wPqQ/c4RjoQzipxRD2W5g21cOqQulZ7rHwQ==}
+  /axios/1.4.0:
+    resolution: {integrity: sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
@@ -44,8 +33,8 @@ packages:
       delayed-stream: 1.0.0
     dev: false
 
-  /commander/10.0.0:
-    resolution: {integrity: sha512-zS5PnTI22FIRM6ylNW8G4Ap0IEOyk62fhLSD0+uHRT9McRCLGpkVNvao4bjimpK/GShynyQkFFxHhwMcETmduA==}
+  /commander/10.0.1:
+    resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
     engines: {node: '>=14'}
     dev: false
 
@@ -136,17 +125,16 @@ packages:
       safer-buffer: 2.1.2
     dev: false
 
-  /icqq/0.0.33:
-    resolution: {integrity: sha512-7x3JTyVEyBSlTjpZOY5zVv2LUaUFW7WYjzxX7qQV/nClmAUvykpw2MqVxNcSyg/IXLrLvCEEEh1aEuj2O8xhug==}
+  /icqq/0.3.14:
+    resolution: {integrity: sha512-j78EPWQ8T4ribXBqp0JOvwYJc4JMbWyCS1l2R7vlJSHf53YJCbsmyTaQPFltePd5eApNuKRHgRZ1DwVc7KoG0Q==}
     engines: {node: '>= v14'}
     dependencies:
-      axios: 1.3.4
-      lodash: 4.17.21
+      axios: 1.4.0
       log4js: 6.9.1
       long: 4.0.0
       pngjs: 6.0.0
       probe-image-size: 7.2.3
-      triptrap: 0.0.16
+      triptrap: 0.0.17
     transitivePeerDependencies:
       - debug
       - supports-color
@@ -160,10 +148,6 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
-    dev: false
-
-  /lodash/4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: false
 
   /log4js/6.9.1:
@@ -219,20 +203,6 @@ packages:
       - supports-color
     dev: false
 
-  /oicq/2.3.1:
-    resolution: {integrity: sha512-mRw/GgdRKFMylnrlnnywzCIwvad6fF5E4WZfIlval070wEc3w9yMV49i9epFltWkU/JGNMDS4t5wWdZEYzW0EQ==}
-    engines: {node: '>= v14'}
-    dependencies:
-      axios: 0.27.2
-      log4js: 6.9.1
-      long: 4.0.0
-      pngjs: 6.0.0
-      probe-image-size: 7.2.3
-    transitivePeerDependencies:
-      - debug
-      - supports-color
-    dev: false
-
   /pngjs/6.0.0:
     resolution: {integrity: sha512-TRzzuFRRmEoSW/p1KVAmiOgPco2Irlah+bGFCeNfJXxxYGwSw7YwAOAcd7X28K/m5bjBWKsC29KyoMfHbypayg==}
     engines: {node: '>=12.13.0'}
@@ -283,8 +253,8 @@ packages:
       - supports-color
     dev: false
 
-  /triptrap/0.0.16:
-    resolution: {integrity: sha512-H6qIpE51+nU3/kl0hqOWuWkW8nmgG4tZHiqRopwL3VEGaEU/GsRsyQ2ZmsrTYTTKt+vDM/6A49KWR4y4o/Kjrw==}
+  /triptrap/0.0.17:
+    resolution: {integrity: sha512-hXc5npX73EeFc64PX1fyofdeyMVyXrNwLNbxAkirymK3AoTcn+xfbeYjfXOJl8iuKsciYQf1Q6VusAK1FUVcGw==}
     dev: false
 
   /universalify/0.1.2:
